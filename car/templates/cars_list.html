@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Каталог автомобилей</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+    <body class="bg-light">
+        <style>
+            table > thead > tr > th > span {
+                display: block;
+            }
+            h4 {
+                margin-top: 4em;
+            }
+        </style>
+        <div class="container content">
+            <header class="header fixed-top bg-dark text-light text-center">
+                <h1 class="">Каталог автомобилей </h1>
+            </header>
+                <h4>К сожалению, для кириллицы, судя по всему, не работает поиск без учета регистра, если бд sqlite, так что при поиске следует это помнить</h4>
+                <table class="table table-striped table-hover table-sm">
+                    <thead>
+                        <form>
+                      <tr>
+                          <th colspan="5"><input type="submit" value="Поиск" class="float-right btn btn-primary"/></th>
+                      </tr>
+                      <tr>
+                        <th scope="col">
+                            {{ form.manufacturer }}
+                            <span>Производитель</span>
+                        </th>
+                        <th scope="col">
+                            {{ form.car_model }}
+                            <span>Модель</span>
+                        </th>
+                        <th scope="col">
+                            {{ form.year_choices }}
+                            {{ form.year }}
+                            <span>Год выпуска</span>
+                        </th>
+                        <th scope="col">
+                            {{ form.gearbox }}
+                            <span>Коробка передач</span>
+                        </th>
+                        <th scope="col">
+                            {{ form.color_checked }}
+                            {{ form.color }}
+                            <span>Цвет</span>
+                        </th>
+                      </tr>
+                    </form>
+                    </thead>
+                    <tbody>
+                    {% for car in object_list %}
+                        <tr>
+                            <td><p>{{ car.manufacturer }}</p></td>
+                            <td><p>{{ car.car_model }}</p></td>
+                            <td><p>{{ car.year }}</p></td>
+                            <td><p>{{ car.get_gearbox_display }}</p></td>
+                            <td style="background-color: {{ car.color }};">     </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            <footer class="footer fixed-bottom bg-dark text-light text-right">
+                <p class="contacts">abuse@microsoft.com</p>
+            </footer>
+        </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
