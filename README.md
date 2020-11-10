@@ -1,10 +1,13 @@
+
 Проект каталога автомобилей.
 Для того, чтобы запустить проект:
 1. необходимо подготовить виртуальное окружение для него командой 
-py -m venv path
+python3 -m venv path
 2. активировать окружение
-path\scripts\activate
+source path\bin\activate
 3. поместить в папку файлы проекта, перейти туда и запустить
 pip install -r requirements.txt
+4. Создать файл .env в директории проекта и прописать в нем значения для
+SECRET_KEY, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 4. Теперь можно запустить проект
-py manage.py runserver
+python3 manage.py runserver
