@@ -11,3 +11,6 @@ pip install -r requirements.txt
 SECRET_KEY, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 4. Теперь можно запустить проект
 python3 manage.py runserver
+
+
+В файле skillfactory содержится конфигурация nginx
